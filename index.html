@@ -7,84 +7,128 @@
 </head>
 <body>
     <div class="container">
-        <div class="row header">
-            <div class="col-sm-4">
-                <h1 class="headerSign">Robot 1</h1>
+        <div class="selectionView">
+            <div class="row header">
+                <div class="col-sm-4">
+                    <h1 class="headerSign">Robot 1</h1>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <h1 class="headerSign">Robot 2</h1>
+                </div>
             </div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <h1 class="headerSign">Robot 2</h1>
+            <div class="row">
+                <input type="text" id="robotName1" class="col-sm-4" placeholder="Your Name">
+                <div class="col-sm-4">
+                    <h3 class="vsSign">Vs</h3>
+                </div>
+                <input type="text" id="robotName2" class="col-sm-4" placeholder="Enemy's Name">
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 playerRobot">
+                    <form>
+                        <div class="radio">
+                            <label><input type="radio" name="playerRadioBut" id="Robocop">Robocop</label>
+                        </div>
+
+                        <div class="radio">
+                            <label><input type="radio" name="playerRadioBut" id="DCCyborg">DC Cyborg</label>
+                        </div>
+
+                        <div class="radio">
+                            <label><input type="radio" name="playerRadioBut" id="WallE">WALL-E</label>
+                        </div>
+                        
+                        <div class="radio">
+                            <label><input type="radio" name="playerRadioBut" id="Jhonny5">Jhonny 5</label>
+                        </div>
+                        
+                        <div class="radio">
+                            <label><input type="radio" name="playerRadioBut" id="MatrixSentinel">Matrix Sentinel</label>
+                        </div>
+                        
+                        <div class="radio">
+                            <label><input type="radio" name="playerRadioBut" id="EVE">EVE(WALL-E)</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 enemyRobot">
+                    <form>
+                        <div class="radio">
+                            <label><input type="radio" name="selectRobot" id="Robocop">Robocop</label>
+                        </div>
+
+                        <div class="radio">
+                            <label><input type="radio" name="selectRobot" id="DCCyborg">DC Cyborg</label>
+                        </div>
+
+                        <div class="radio">
+                            <label><input type="radio" name="selectRobot" id="WallE">WALL-E</label>
+                        </div>
+                        
+                        <div class="radio">
+                            <label><input type="radio" name="selectRobot" id="Jhonny5">Jhonny 5</label>
+                        </div>
+                        
+                        <div class="radio">
+                            <label><input type="radio" name="selectRobot" id="MatrixSentinel">Matrix Sentinel</label>
+                        </div>
+                        
+                        <div class="radio">
+                            <label><input type="radio" name="selectRobot" id="EVE">EVE(WALL-E)</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-3">
+                    <button class="btn btn-danger" id="fight">Fight</button>
+                </div>
+                <div class="col-sm-4"></div>
             </div>
         </div>
-        <div class="row">
-            <input type="text" id="robotName1" class="col-sm-4" placeholder="Your Name">
-            <div class="col-sm-4">
-                <h3 class="vsSign">Vs</h3>
+
+        <div class="battleView">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h1 class="playerName"></h1>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <h1 class="enemyName">Enemy</h1>
+                </div>
             </div>
-            <input type="text" id="robotName2" class="col-sm-4" placeholder="Enemy's Name">
-        </div>
-
-        <div class="row robotUnitContainer">
-            <div class="col-sm-4 playerRobot">
-                <form>
-                    <div class="radio">
-                        <label><input type="radio" name="playerRadioBut" id="Robocop">Robocop</label>
-                    </div>
-
-                    <div class="radio">
-                        <label><input type="radio" name="playerRadioBut" id="DCCyborg">DC Cyborg</label>
-                    </div>
-
-                    <div class="radio">
-                        <label><input type="radio" name="playerRadioBut" id="WallE">WALL-E</label>
-                    </div>
-                    
-                    <div class="radio">
-                        <label><input type="radio" name="playerRadioBut" id="Jhonny5">Jhonny 5</label>
-                    </div>
-                    
-                    <div class="radio">
-                        <label><input type="radio" name="playerRadioBut" id="MatrixSentinel">Matrix Sentinel</label>
-                    </div>
-                    
-                    <div class="radio">
-                        <label><input type="radio" name="playerRadioBut" id="EVE">EVE(WALL-E)</label>
-                    </div>
-                </form>
+            <div class="row">
+                <div class="col-sm-4 playerStats"></div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 enemyStats"></div>
             </div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4 enemyRobot">
-                <form>
-                    <div class="radio">
-                        <label><input type="radio" name="selectRobot">Robocop</label>
-                    </div>
-
-                    <div class="radio">
-                        <label><input type="radio" name="selectRobot">DC Cyborg</label>
-                    </div>
-
-                    <div class="radio">
-                        <label><input type="radio" name="selectRobot">WALL-E</label>
-                    </div>
-                    
-                    <div class="radio">
-                        <label><input type="radio" name="selectRobot">Jhonny 5</label>
-                    </div>
-                    
-                    <div class="radio">
-                        <label><input type="radio" name="selectRobot">Matrix Sentinel</label>
-                    </div>
-                    
-                    <div class="radio">
-                        <label><input type="radio" name="selectRobot">EVE(WALL-E)</label>
-                    </div>
-                </form>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">images</div>
+                <div class="col-sm-4"></div> 
+            </div>
+            <div class="row battlefield">
+                <div class="col-sm-4"></div> 
+                <div class="col-sm-4">Battlefield</div> 
+                <div class="col-sm-4"></div> 
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div> 
+                <div class="col-sm-4">
+                    <button class="btn btn-danger" id="dealDamage">Attack!!</button>
+                </div> 
+                <div class="col-sm-4"></div> 
             </div>
         </div>
     </div>
 
-    <div class="row battleField">
-    </div>
+
+
+
 
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

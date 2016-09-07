@@ -7,7 +7,6 @@ var Robot = function (name) {
     this.name = name;
 };
 
-console.log (Robot);
 
 Cyborg = function () {
     this.health = this.health + 40;
@@ -18,8 +17,6 @@ Cyborg = function () {
 Cyborg.prototype = new Robot;
 
 ATV = function () {
-    console.log(typeof this.health);
-
     this.health = this.health + 40;
     this.damage = this.damage + 10;
     this.speed = 7;
@@ -54,7 +51,6 @@ Robot.DCCyborg = function () {
 Robot.DCCyborg.prototype = new Cyborg;
 
 Robot.WallE = function () {
-    console.log(typeof this.health);
     this.health = this.health - Math.floor(Math.random() * 10);
     this.damage = this.damage - 10;
     this.speed = this.speed + 1;

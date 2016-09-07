@@ -2,11 +2,14 @@
 
 console.log ("Java Running");
 
-
+$(".selectionView").show();
+$(".battleView").hide();
 var inputName1 = "";
 var inputName2 = "";
 var player;
 var enemy;
+var playerVessel;
+var enemyVessel;
 
 function getPlayerName () {
     $("#robotName1").keypress(function (evt){
@@ -22,8 +25,8 @@ function getEnemyName() {
     $("#robotName2").keypress(function (evt){
         // console.log(evt);
         if (evt.keyCode === 13) {
-            var inputName2 = $("#robotName2").val();
-        }
+            inputName2 = $("#robotName2").val();
+        };
     });
 } 
 
@@ -31,30 +34,53 @@ getEnemyName();
 
 function playerRobotSelect() {
     $("input:radio").on("change", function(evt) {
-        console.log(evt.currentTarget.id);
-        playerVessel = evt.currentTarget.id;
-        console.log(playerVessel);
-        player = new Robot[playerVessel]();
-        console.log(player);
+        if (evt.currentTarget.name === "playerRadioBut"){
+            // console.log(evt.currentTarget.name);
+            playerVessel = evt.currentTarget.id;
+            // console.log(playerVessel);
+            player = new Robot[playerVessel]();
+            console.log(player);            
+        } else if (evt.currentTarget.name === "selectRobot") {
+            // console.log(evt.currentTarget)
+            enemyVessel = evt.currentTarget.id;
+            enemy = new Robot[enemyVessel]();
+            console.log(enemy);
+        }
     });
 };
 
 playerRobotSelect();
 
-function enemyRobotSelect() {
-    $("input:radio").on("change", function(evt) {
-        console.log(evt.currentTarget.id);
-        enemyVessel = evt.currentTarget.id;
-        console.log(enemyVessel);
-        enemy = new Robot[enemyVessel]();
-        console.log(player);
-    });
-};
+function letsFight() {
 
-// $('#WallE').click( () =>{
-//  var walle1 = new Robot.WallE();
-//  console.log(walle1);
-// })
+    $("#fight").click(function () {
+        console.log("Let's Fight");
+        $(".selectionView").hide();
+        $(".battleView").show();
+        console.log(inputName1);
+        $(".playerName").html(inputName1);
+        $(".enemyName").html(inputName2);
+        printStats();
+    })
+}
+
+function printStats() {
+    $(".playerStats").html(
+                `<h2>${playerVessel}</h2>
+                <h2>Health: ${player.health}</h2>
+                <h2>Damage: ${player.damage}</h2>
+                <h2>Speed: ${player.speed}</h2>`);
+        $(".enemyStats").html(
+                `<h2>${enemyVessel}</h2>
+                <h2>Health: ${player.health}</h2>
+                <h2>Damage: ${player.damage}</h2>
+                <h2>Speed: ${player.speed}</h2>`);
+}
+
+function damageDealer () {
+    
+}
+letsFight()
 
 
 
