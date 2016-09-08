@@ -67,15 +67,20 @@ function letsFight() {
 
 function printStats() {
     $(".playerStats").html(
-                `<h2>${playerVessel}</h2>
-                <h2>Health: ${player.health}</h2>
-                <h2>Damage: ${player.damage}</h2>
-                <h2>Speed: ${player.speed}</h2>`);
-        $(".enemyStats").html(
-                `<h2>${enemyVessel}</h2>
-                <h2>Health: ${enemy.health}</h2>
-                <h2>Damage: ${enemy.damage}</h2>
-                <h2>Speed: ${enemy.speed}</h2>`);
+        `<h2>${playerVessel}</h2>
+        <h2>Health: ${player.health}</h2>
+        <h2>Damage: ${player.damage}</h2>
+        <h2>Speed: ${player.speed}</h2>`);
+
+    $(".playerImg").html(
+        `<img src="images/${playerVessel}.jpg">`)
+    $(".enemyImg").html(
+        `<img src="images/${enemyVessel}.jpg" width= 600px height= 500px>`)
+    $(".enemyStats").html(
+        `<h2>${enemyVessel}</h2>
+        <h2>Health: ${enemy.health}</h2>
+        <h2>Damage: ${enemy.damage}</h2>
+        <h2>Speed: ${enemy.speed}</h2>`);
 }
 
 function damageDealer () {
@@ -86,12 +91,26 @@ function damageDealer () {
         printStats();
 
         if (player.health <= 0) {
-            console.log("You Lose");
+            enemyGameOver();
         }else if (enemy.health <= 0) {
-            console.log("You Won");
+            playerGameOver();
         }
     })
 }
+
+function playerGameOver () {
+    console.log("gameOver");
+    $(".gameOver").html(
+        `<h1>${inputName1} won using ${playerVessel}</h1>`);
+}
+
+function enemyGameOver () {
+    console.log("gameOver");
+    $(".gameOver").html(
+        `<h1>${inputName2} won using ${enemyVessel}</h1>`);
+}
+
+
 letsFight()
 
 
