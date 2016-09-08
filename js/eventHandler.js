@@ -61,6 +61,7 @@ function letsFight() {
         $(".playerName").html(inputName1);
         $(".enemyName").html(inputName2);
         printStats();
+        damageDealer();
     })
 }
 
@@ -72,13 +73,24 @@ function printStats() {
                 <h2>Speed: ${player.speed}</h2>`);
         $(".enemyStats").html(
                 `<h2>${enemyVessel}</h2>
-                <h2>Health: ${player.health}</h2>
-                <h2>Damage: ${player.damage}</h2>
-                <h2>Speed: ${player.speed}</h2>`);
+                <h2>Health: ${enemy.health}</h2>
+                <h2>Damage: ${enemy.damage}</h2>
+                <h2>Speed: ${enemy.speed}</h2>`);
 }
 
 function damageDealer () {
-    
+    $("#dealDamage").click( function() {
+        console.log("been touched");
+        player.health = player.health - enemy.damage;
+        enemy.health = enemy.health - player.damage;
+        printStats();
+
+        if (player.health <= 0) {
+            console.log("You Lose");
+        }else if (enemy.health <= 0) {
+            console.log("You Won");
+        }
+    })
 }
 letsFight()
 
